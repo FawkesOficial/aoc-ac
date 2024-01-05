@@ -86,9 +86,11 @@ def print_leaderboard_without_cheaters(leaderboard_data: dict, top: int = -1) ->
 def main():
 
     cookie = input("[?] Please enter your AoC cookie: ")
+    year = int(input(f"[?] Please specify the year(press enter for {datetime.now().year}): "))
+    year = year if year != "" else datetime.now().year
     leaderboard_id = int(input("[?] Please enter the ID of the leaderboard: "))
     
-    leaderboard_data = get_leaderboard_data(leaderboard_id=leaderboard_id, year=datetime.now().year, auth_cookie=cookie)
+    leaderboard_data = get_leaderboard_data(leaderboard_id=leaderboard_id, year=year, auth_cookie=cookie)
     
     submissions = get_submissions(leaderboard_data)
 
